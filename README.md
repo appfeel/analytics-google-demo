@@ -5,16 +5,26 @@
 git clone https://github.com/appfeel/analytics-google-demo.git AnalyticsTest
 ```
 
-- Add com.analytics.google plugin to the project:
+- Add cordova-plugin-analytics plugin to the project:
 ````
 cd AdmobAdsTest
-cordova plugin add com.analytics.google
+cordova plugin add cordova-plugin-analytics
 ```
 
 - Add platforms to the project:
 ```
 cordova platform add ios android
 ```
+
+Place your UA-XXXXXX-X in `www/js/index.js`:
+
+```javascript
+receivedEvent: function (id) {
+    // ...
+    analytics.startTrackerWithId('YOUR-ID-HERE'); // <-- Replace with your Google Analytics tracking code
+    // ...
+}
+````
 
 - Emulate the application:
 ````
